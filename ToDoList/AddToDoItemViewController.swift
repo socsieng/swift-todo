@@ -14,9 +14,15 @@ class AddToDoItemViewController : UIViewController {
     @IBOutlet var textField : UITextField
     @IBOutlet var doneButton : UIBarButtonItem
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
         
-        if (sender as? NSObject != doneButton) {
+        toDoItem = nil
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (sender !== doneButton) {
+            toDoItem = nil
             return
         }
         
@@ -25,6 +31,12 @@ class AddToDoItemViewController : UIViewController {
             item.itemName = textField.text
             item.completed = false
             toDoItem = item
+        }
+    }
+    
+    override func viewDidLoad() {
+        if let item = toDoItem {
+            textField.text = item.itemName
         }
     }
 }

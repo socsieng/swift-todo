@@ -8,12 +8,12 @@
         <scene sceneID="j9x-hS-wPj">
             <objects>
                 <tableViewController id="kN0-92-S5l" customClass="ToDoListViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JhQ-ET-n8y">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JhQ-ET-n8y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListPrototypeCell" id="kGB-yW-Jct">
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="none" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="ListPrototypeCell" editingAccessoryType="disclosureIndicator" id="kGB-yW-Jct">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kGB-yW-Jct" id="Y8b-MV-j1R">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -27,12 +27,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My To-Do List" id="nvI-PH-GxP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="LLi-GO-FeG">
+                            <connections>
+                                <action selector="editButtonSelected:" destination="kN0-92-S5l" id="jTL-x4-j9d"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="J1y-iC-OHa">
                             <connections>
                                 <segue destination="PNg-dS-Ogc" kind="modal" id="bcJ-bD-aBf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="LLi-GO-FeG" id="Gfj-Do-RkE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0N-dv-ZRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,7 +49,7 @@
         <!--Add To Do Item View Controller - Add To-Do Item-->
         <scene sceneID="YRH-IP-c39">
             <objects>
-                <viewController id="4wM-ms-29d" customClass="AddToDoItemViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddToDoItem" id="4wM-ms-29d" customClass="AddToDoItemViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vqH-59-dEs"/>
                         <viewControllerLayoutGuide type="bottom" id="MXM-hw-Zvd"/>
@@ -119,7 +127,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBf-JN-1fB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="779" y="399"/>
+            <point key="canvasLocation" x="796" y="754"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
